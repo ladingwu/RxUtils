@@ -18,23 +18,23 @@ public class RxUtils {
     }
 
     public static void  setIoThreadPriority(int  priority){
-        String KEY_IO_PRIORITY = "rx2.io-priority";
-        System.setProperty(KEY_IO_PRIORITY,String.valueOf(priority));
+        String key = "rx2.io-priority";
+        System.setProperty(key,String.valueOf(priority));
 
     }
     public static void  setComputationThreadPriority(int  priority){
-        String KEY_IO_PRIORITY = "rx2.computation-priority";
-        System.setProperty(KEY_IO_PRIORITY,String.valueOf(priority));
+        String key = "rx2.computation-priority";
+        System.setProperty(key,String.valueOf(priority));
 
     }
     public static void  setNewThreadPriority(int  priority){
-        String KEY_IO_PRIORITY = "rx2.newthread-priority";
-        System.setProperty(KEY_IO_PRIORITY,String.valueOf(priority));
+        String key = "rx2.newthread-priority";
+        System.setProperty(key,String.valueOf(priority));
 
     }
     public static void  setSingleThreadPriority(int  priority){
-        String KEY_IO_PRIORITY = "rx2.single-priority";
-        System.setProperty(KEY_IO_PRIORITY,String.valueOf(priority));
+        String key = "rx2.single-priority";
+        System.setProperty(key,String.valueOf(priority));
 
     }
 }
