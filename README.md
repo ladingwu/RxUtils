@@ -45,6 +45,8 @@
         // 设置所有IO线程的优先级
         RxUtils.setIoThreadPriority(4);
         
+        ...
+        
 ```
 
 设置当前的线程的优先级:
