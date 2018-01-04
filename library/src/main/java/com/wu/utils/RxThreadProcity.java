@@ -22,11 +22,6 @@ import io.reactivex.functions.Function;
         return upstream.map(new Function<T, T>() {
             @Override
             public T apply(T t) throws Exception {
-//                System.setProperty(KEY_IO_PRIORITY,"7");
-//                int pro=Integer.getInteger(KEY_IO_PRIORITY, Thread.NORM_PRIORITY);
-//                if (pro!=priority) {
-//                    Thread.currentThread().getName();
-//                }
                 Thread.currentThread().setPriority(priority);
                 return t;
             }
