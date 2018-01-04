@@ -71,15 +71,13 @@ import io.reactivex.subjects.PublishSubject;
     // 不过既然系统提供了，那么我们还是使用系统提供的生命周期的监听为妙
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     void onAny() {
-        if (mLifecycleOwner.getLifecycle().getCurrentState()== Lifecycle.State.RESUMED) {
-            if (curData != null) {
-                subject.onNext(curData);
-            }
-        }else if (mLifecycleOwner.getLifecycle().getCurrentState()== Lifecycle.State.DESTROYED){
+        if (mLifecycleOwner.getLifecycle().getCurrentState()== Lifecycle.State.DESTROYED){
             if (mDisposable != null && !mDisposable.isDisposed()) {
                 mDisposable.dispose();
+                return;
             }
         }
+        sendDataIfNeed();
     }
 
     private void sendDataIfNeed(){
