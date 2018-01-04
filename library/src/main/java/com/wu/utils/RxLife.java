@@ -47,7 +47,6 @@ import io.reactivex.subjects.PublishSubject;
                 @Override
                 public void onNext(T t) {
 //                    subject.onNext(t);
-                    val++;
                     curData=t;
                     sendDataIfNeed();
                 }
@@ -81,13 +80,11 @@ import io.reactivex.subjects.PublishSubject;
         }
     }
 
-    private int val=-1;
-    private int lastVal=-1;
     private void sendDataIfNeed(){
         Lifecycle.State curstate=mLifecycleOwner.getLifecycle().getCurrentState();
         if (isActiveState(curstate)) {
-            if (val>lastVal) {
-                lastVal=val;
+            if (subject.hasObservers()) {
+
                 if (mDisposable != null && !mDisposable.isDisposed()) {
                     subject.onNext(curData);
                 }
@@ -95,7 +92,7 @@ import io.reactivex.subjects.PublishSubject;
         }
     }
 
-    static boolean isActiveState(Lifecycle.State state) {
-        return state.isAtLeast(Lifecycle.State.STARTED);
+    private boolean isActiveState(Lifecycle.State state) {
+        return state.isAtLeast(Lifecycle.State.RESUMED);
     }
 }
