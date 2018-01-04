@@ -12,6 +12,7 @@ import com.wu.utils.RxUtils;
 
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -26,12 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public View onCreateView(String name, Context context, AttributeSet attrs) {
-        if (name.equals("TextView")) {
-            return new TextView(context, attrs);
-        }
-        return super.onCreateView(name, context, attrs);
-    }
 
     public void onClick(View view) {
         // 注意，这个是设置所有的computation线程的优先级为 4

@@ -67,6 +67,8 @@ import io.reactivex.subjects.PublishSubject;
     }
 
 
+    //这里直接使用了lifecycle组件，其实我们也可以自己监听每个activity的生命周期
+    // 不过既然系统提供了，那么我们还是使用系统提供的生命周期的监听为妙
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     void onAny() {
         if (mLifecycleOwner.getLifecycle().getCurrentState()== Lifecycle.State.RESUMED) {
